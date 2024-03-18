@@ -19,7 +19,7 @@ public class PaymentService {
         @FormParam("value") String value) {
         Invoice invoice = new Invoice();
         invoice.setCardNumber(cardNumber);
-        invoice.setValue(cardNumber);
+        invoice.setValue(value);
         invoice.setPaid(true);
 
         return invoice;
