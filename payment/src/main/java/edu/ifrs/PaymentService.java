@@ -1,5 +1,6 @@
 package edu.ifrs;
 
+import jakarta.annotation.security.RolesAllowed;
 import jakarta.ws.rs.Consumes;
 import jakarta.ws.rs.FormParam;
 import jakarta.ws.rs.POST;
@@ -14,6 +15,7 @@ public class PaymentService {
     @Path("/pay")
     @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
     @Produces(MediaType.APPLICATION_JSON)
+    @RolesAllowed("User") //regras definidas de quem pode acessar
     public Invoice pay(
         @FormParam("cardNumber") String cardNumber, 
         @FormParam("value") String value) {

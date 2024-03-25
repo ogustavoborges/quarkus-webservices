@@ -4,6 +4,7 @@ import org.eclipse.microprofile.rest.client.inject.RestClient;
 
 import edu.ifrs.client.Payment;
 import edu.ifrs.model.Invoice;
+import jakarta.annotation.security.RolesAllowed;
 import jakarta.inject.Inject;
 import jakarta.ws.rs.Consumes;
 import jakarta.ws.rs.FormParam;
@@ -19,11 +20,11 @@ public class CheckoutService {
     @RestClient
     Payment paymentService;
 
-
     @POST
     @Path("/buy")
     @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
     @Produces(MediaType.APPLICATION_JSON)
+    @RolesAllowed("User")
     public Invoice buy(
         @FormParam("cardNumber") String cardNumber, 
         @FormParam("value") String value) {
