@@ -1,0 +1,19 @@
+quarkus:
+  http:
+    port: 8080
+
+    ssl:
+      port: 8443
+
+      certificate:
+        key-store-file: keystore.jks
+        key-store-password: password
+        
+  tls:
+    trust-all: true
+
+smallrye:
+  jwt:
+    sign:
+      key:
+        location: privateKey.pem
